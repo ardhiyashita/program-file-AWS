@@ -1,0 +1,10 @@
+int pin[] = {16,5,4,0,2,14}; //Array GPIO pin yang digunakan int numPin = 6; // Total pin yang digunakan int pinOnIndex = 0; // indeks pin yang statusnya HIGH saat ini
+void setup() {
+// Set mode semua GPIO pin yang dipakai sebagai OUTPUT pin for (int i=0;i&lt;numPin;i++){
+pinMode(pin[i],OUTPUT);
+void loop() {
+// Set pin dengan indeks pinOnIndex dengan HIGH, selain itu set LOW for (int i=0;i&lt;numPin;i++){ if(i==pinOnIndex){
+digitalWrite(pin[i], HIGH); }else{
+digitalWrite(pin[i], LOW);
+delay(100); // jeda 100 ms pinOnIndex = pinOnIndex+1; // increment pinOnIndex agar bergantian if(pinOnIndex&gt;=numPin){ // jika pinOnIndex&gt;=Total pin makan set pinOnIndex = 0
+pinOnIndex = 0;
